@@ -20,7 +20,7 @@ type DoubtFeedProps = {
 };
 
 export function DoubtFeed({ theme, toggleTheme }: DoubtFeedProps) {
-  const { user } = useAuth();
+  const { user, mockLogout } = useAuth();
   const [doubts, setDoubts] = useState<Doubt[]>([]);
   const [loading, setLoading] = useState(true);
   const [text, setText] = useState("");
@@ -96,7 +96,10 @@ export function DoubtFeed({ theme, toggleTheme }: DoubtFeedProps) {
                 {theme === "dark" ? "Light" : "Dark"}
               </button>
               <button
-                onClick={() => signOut(getFirebaseAuth())}
+                onClick={() => {
+                  mockLogout();
+                  try { signOut(getFirebaseAuth()); } catch (e) {}
+                }}
                 className="ghost-button inline-flex h-11 items-center gap-2 rounded-full px-4 text-sm font-semibold"
               >
                 <LogOut className="h-4 w-4" />

@@ -1,7 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { MoonStar, Sparkles, SunMedium } from "lucide-react";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { getFirebaseAuth } from "@/lib/firebase";
+import { useAuth } from "@/hooks/use-auth";
 
 type AuthScreenProps = {
   theme: "dark" | "light";
@@ -15,17 +14,15 @@ export function AuthScreen({ theme, toggleTheme }: AuthScreenProps) {
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
 
+  const { mockLogin } = useAuth();
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setError("");
     setBusy(true);
     try {
-      const auth = getFirebaseAuth();
-      if (tab === "signup") {
-        await createUserWithEmailAndPassword(auth, email, password);
-      } else {
-        await signInWithEmailAndPassword(auth, email, password);
-      }
+      // Bypass Firebase Auth and accept any username and password immediately
+      mockLogin(email);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Authentication failed");
     } finally {

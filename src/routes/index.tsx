@@ -91,13 +91,19 @@ function SetupNotice({ theme, toggleTheme }: { theme: ThemeMode; toggleTheme: ()
           </button>
         </div>
         <p className="mb-4 text-sm text-muted-foreground">
-          Add your Firebase web config to <code className="rounded bg-muted px-1 py-0.5 text-xs">src/lib/firebase.ts</code>{" "}
-          to start using the app.
+          Add your Firebase web config to{" "}
+          <code className="rounded bg-muted px-1 py-0.5 text-xs">src/lib/firebase.ts</code> to start
+          using the app.
         </p>
         <ol className="list-decimal space-y-2 pl-5 text-sm text-foreground">
           <li>Go to Firebase Console → Project Settings → Your apps → Web app.</li>
-          <li>Copy the <code className="rounded bg-muted px-1 text-xs">firebaseConfig</code> object.</li>
-          <li>Replace the placeholder values in <code className="rounded bg-muted px-1 text-xs">src/lib/firebase.ts</code>.</li>
+          <li>
+            Copy the <code className="rounded bg-muted px-1 text-xs">firebaseConfig</code> object.
+          </li>
+          <li>
+            Replace the placeholder values in{" "}
+            <code className="rounded bg-muted px-1 text-xs">src/lib/firebase.ts</code>.
+          </li>
           <li>Enable Email/Password Auth and Firestore in the Firebase Console.</li>
         </ol>
       </div>

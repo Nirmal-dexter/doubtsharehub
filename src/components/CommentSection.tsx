@@ -27,12 +27,10 @@ export function CommentSection({ doubtId }: { doubtId: string }) {
   useEffect(() => {
     const q = query(
       collection(getDb(), "doubts", doubtId, "comments"),
-      orderBy("createdAt", "asc")
+      orderBy("createdAt", "asc"),
     );
     const unsub = onSnapshot(q, (snap) => {
-      setComments(
-        snap.docs.map((d) => ({ id: d.id, ...(d.data() as Omit<Comment, "id">) }))
-      );
+      setComments(snap.docs.map((d) => ({ id: d.id, ...(d.data() as Omit<Comment, "id">) })));
     });
     return () => unsub();
   }, [doubtId]);
@@ -68,9 +66,7 @@ export function CommentSection({ doubtId }: { doubtId: string }) {
       </form>
 
       <div className="flex flex-col gap-3">
-        {comments.length === 0 && (
-          <p className="text-xs text-muted-foreground">No comments yet.</p>
-        )}
+        {comments.length === 0 && <p className="text-xs text-muted-foreground">No comments yet.</p>}
         {comments.map((c) => (
           <div key={c.id} className="surface-panel rounded-2xl px-4 py-3 text-sm">
             <div className="text-xs font-semibold text-primary">

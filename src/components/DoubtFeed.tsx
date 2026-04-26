@@ -48,11 +48,11 @@ export function DoubtFeed({ theme, toggleTheme }: DoubtFeedProps) {
               likes: data.likes ?? [],
               createdAt: data.createdAt,
             };
-          })
+          }),
         );
         setLoading(false);
       },
-      () => setLoading(false)
+      () => setLoading(false),
     );
     return () => unsub();
   }, []);
@@ -80,7 +80,6 @@ export function DoubtFeed({ theme, toggleTheme }: DoubtFeedProps) {
       <div className="mx-auto max-w-6xl">
         <header className="glass-panel sticky top-4 z-20 rounded-[1.75rem] px-4 py-4 sm:px-6">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-
             <div className="flex flex-wrap items-center gap-2 sm:gap-3">
               <div className="info-chip rounded-full px-3 py-2 text-xs font-semibold">
                 {user?.email}
@@ -89,7 +88,11 @@ export function DoubtFeed({ theme, toggleTheme }: DoubtFeedProps) {
                 onClick={toggleTheme}
                 className="toggle-button inline-flex h-11 items-center gap-2 rounded-full px-4 text-sm font-semibold"
               >
-                {theme === "dark" ? <SunMedium className="h-4 w-4" /> : <MoonStar className="h-4 w-4" />}
+                {theme === "dark" ? (
+                  <SunMedium className="h-4 w-4" />
+                ) : (
+                  <MoonStar className="h-4 w-4" />
+                )}
                 {theme === "dark" ? "Light" : "Dark"}
               </button>
               <button
@@ -107,9 +110,12 @@ export function DoubtFeed({ theme, toggleTheme }: DoubtFeedProps) {
           <aside className="desktop-sidebar gap-4">
             <section className="glass-panel rounded-[1.75rem] p-5">
               <p className="floating-label text-xs">Overview</p>
-              <h2 className="mt-3 text-2xl font-bold text-foreground">Stay on top of every open question.</h2>
+              <h2 className="mt-3 text-2xl font-bold text-foreground">
+                Stay on top of every open question.
+              </h2>
               <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                A focused neon workspace for fast peer help, structured threads, and live community signal.
+                A focused neon workspace for fast peer help, structured threads, and live community
+                signal.
               </p>
             </section>
             <section className="surface-panel rounded-[1.5rem] p-5">
@@ -119,7 +125,10 @@ export function DoubtFeed({ theme, toggleTheme }: DoubtFeedProps) {
                   ["Upvotes", String(doubts.reduce((sum, doubt) => sum + doubt.likes.length, 0))],
                   ["Status", loading ? "Syncing" : "Live"],
                 ].map(([label, value]) => (
-                  <div key={label} className="rounded-2xl border border-border bg-background/30 px-4 py-3">
+                  <div
+                    key={label}
+                    className="rounded-2xl border border-border bg-background/30 px-4 py-3"
+                  >
                     <p className="floating-label text-[11px]">{label}</p>
                     <p className="mt-2 text-lg font-bold text-foreground">{value}</p>
                   </div>
@@ -173,7 +182,11 @@ export function DoubtFeed({ theme, toggleTheme }: DoubtFeedProps) {
                 </div>
               </div>
               <div className="flex flex-col gap-4">
-                {loading && <p className="glass-panel rounded-3xl px-4 py-8 text-center text-sm text-muted-foreground">Loading…</p>}
+                {loading && (
+                  <p className="glass-panel rounded-3xl px-4 py-8 text-center text-sm text-muted-foreground">
+                    Loading…
+                  </p>
+                )}
                 {!loading && doubts.length === 0 && (
                   <p className="glass-panel rounded-3xl px-4 py-8 text-center text-sm text-muted-foreground">
                     No doubts yet. Be the first to ask.

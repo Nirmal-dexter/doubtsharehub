@@ -1,9 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { MoonStar, Sparkles, SunMedium } from "lucide-react";
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { getFirebaseAuth } from "@/lib/firebase";
 
 type AuthScreenProps = {
@@ -40,12 +37,15 @@ export function AuthScreen({ theme, toggleTheme }: AuthScreenProps) {
     <div className="neon-page flex min-h-screen items-center justify-center px-4 py-10 sm:px-6">
       <div className="w-full max-w-6xl">
         <div className="mb-6 flex items-center justify-between gap-4">
-
           <button
             onClick={toggleTheme}
             className="toggle-button inline-flex h-11 items-center gap-2 rounded-full px-4 text-sm font-semibold"
           >
-            {theme === "dark" ? <SunMedium className="h-4 w-4" /> : <MoonStar className="h-4 w-4" />}
+            {theme === "dark" ? (
+              <SunMedium className="h-4 w-4" />
+            ) : (
+              <MoonStar className="h-4 w-4" />
+            )}
             {theme === "dark" ? "Light" : "Dark"}
           </button>
         </div>
@@ -69,7 +69,11 @@ export function AuthScreen({ theme, toggleTheme }: AuthScreenProps) {
                 ["Focused replies", "Inline comments keep every thread readable."],
                 ["Signal first", "Upvotes highlight the most useful discussions fast."],
               ].map(([title, text]) => (
-                <div key={title} className="surface-panel animate-float rounded-2xl p-4" style={{ animationDelay: `${title.length * 60}ms` }}>
+                <div
+                  key={title}
+                  className="surface-panel animate-float rounded-2xl p-4"
+                  style={{ animationDelay: `${title.length * 60}ms` }}
+                >
                   <p className="text-sm font-semibold text-foreground">{title}</p>
                   <p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p>
                 </div>
@@ -100,8 +104,9 @@ export function AuthScreen({ theme, toggleTheme }: AuthScreenProps) {
                       setTab(t);
                       setError("");
                     }}
-                    className={`rounded-full px-4 py-2 text-sm font-semibold ${active ? "neon-button" : "ghost-button"
-                      }`}
+                    className={`rounded-full px-4 py-2 text-sm font-semibold ${
+                      active ? "neon-button" : "ghost-button"
+                    }`}
                   >
                     {t === "login" ? "Login" : "Sign up"}
                   </button>

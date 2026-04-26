@@ -2,7 +2,7 @@ services:
   - type: web
     name: doubt-share-hub
     env: static
-    buildCommand: yarn install && yarn build
+    buildCommand: npm install && npm run build
     staticPublishPath: ./dist
     routes:
       - type: rewrite

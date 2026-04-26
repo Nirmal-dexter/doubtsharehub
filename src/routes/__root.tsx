@@ -30,9 +30,15 @@ export const Route = createRootRoute({
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "DoubtHub" },
-      { name: "description", content: "Premium real-time peer doubt sharing and micro-discussions." },
+      {
+        name: "description",
+        content: "Premium real-time peer doubt sharing and micro-discussions.",
+      },
       { property: "og:title", content: "DoubtHub" },
-      { property: "og:description", content: "Premium real-time peer doubt sharing and micro-discussions." },
+      {
+        property: "og:description",
+        content: "Premium real-time peer doubt sharing and micro-discussions.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],

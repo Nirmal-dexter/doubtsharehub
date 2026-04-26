@@ -90,7 +90,10 @@
   --panel-foreground: oklch(0.24 0.03 286);
   --surface: oklch(0.96 0.015 305 / 0.88);
   --surface-foreground: oklch(0.22 0.03 286);
-  --shadow-neon: 0 0 0 1px color-mix(in oklab, var(--primary) 40%, transparent), 0 18px 60px -30px color-mix(in oklab, var(--primary) 35%, transparent), 0 10px 30px -20px color-mix(in oklab, var(--foreground) 18%, transparent);
+  --shadow-neon:
+    0 0 0 1px color-mix(in oklab, var(--primary) 40%, transparent),
+    0 18px 60px -30px color-mix(in oklab, var(--primary) 35%, transparent),
+    0 10px 30px -20px color-mix(in oklab, var(--foreground) 18%, transparent);
 }
 
 .dark {
@@ -130,7 +133,10 @@
   --panel-foreground: oklch(0.96 0.015 300);
   --surface: oklch(0.24 0.028 290 / 0.9);
   --surface-foreground: oklch(0.96 0.015 300);
-  --shadow-neon: 0 0 0 1px color-mix(in oklab, var(--primary) 50%, transparent), 0 20px 80px -35px color-mix(in oklab, var(--primary) 45%, transparent), 0 14px 28px -24px color-mix(in oklab, white 18%, transparent);
+  --shadow-neon:
+    0 0 0 1px color-mix(in oklab, var(--primary) 50%, transparent),
+    0 20px 80px -35px color-mix(in oklab, var(--primary) 45%, transparent),
+    0 14px 28px -24px color-mix(in oklab, white 18%, transparent);
 }
 
 @layer base {
@@ -145,9 +151,21 @@
   body {
     min-height: 100vh;
     background:
-      radial-gradient(circle at top, color-mix(in oklab, var(--primary) 18%, transparent), transparent 34%),
-      radial-gradient(circle at 80% 10%, color-mix(in oklab, var(--accent) 18%, transparent), transparent 24%),
-      linear-gradient(160deg, color-mix(in oklab, var(--background) 92%, black 8%) 0%, color-mix(in oklab, var(--background) 82%, black 18%) 100%);
+      radial-gradient(
+        circle at top,
+        color-mix(in oklab, var(--primary) 18%, transparent),
+        transparent 34%
+      ),
+      radial-gradient(
+        circle at 80% 10%,
+        color-mix(in oklab, var(--accent) 18%, transparent),
+        transparent 24%
+      ),
+      linear-gradient(
+        160deg,
+        color-mix(in oklab, var(--background) 92%, black 8%) 0%,
+        color-mix(in oklab, var(--background) 82%, black 18%) 100%
+      );
     color: var(--color-foreground);
     font-family: "Manrope", sans-serif;
     letter-spacing: 0;
@@ -165,7 +183,12 @@
   button,
   input,
   textarea {
-    transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease, transform 180ms ease, color 180ms ease;
+    transition:
+      border-color 180ms ease,
+      box-shadow 180ms ease,
+      background-color 180ms ease,
+      transform 180ms ease,
+      color 180ms ease;
   }
 
   ::selection {
@@ -209,7 +232,11 @@
 
   .glass-panel {
     border: 1px solid var(--color-border);
-    background: linear-gradient(180deg, color-mix(in oklab, var(--color-panel) 88%, transparent), color-mix(in oklab, var(--color-card) 96%, transparent));
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--color-panel) 88%, transparent),
+      color-mix(in oklab, var(--color-card) 96%, transparent)
+    );
     box-shadow: var(--shadow-neon);
     backdrop-filter: blur(20px);
   }
@@ -227,14 +254,22 @@
 
   .neon-button {
     border: 1px solid color-mix(in oklab, var(--color-primary) 70%, transparent);
-    background: linear-gradient(135deg, color-mix(in oklab, var(--color-primary) 90%, white 8%), color-mix(in oklab, var(--color-accent) 75%, var(--color-primary) 25%));
+    background: linear-gradient(
+      135deg,
+      color-mix(in oklab, var(--color-primary) 90%, white 8%),
+      color-mix(in oklab, var(--color-accent) 75%, var(--color-primary) 25%)
+    );
     color: var(--color-primary-foreground);
-    box-shadow: 0 0 0 1px color-mix(in oklab, var(--color-primary) 25%, transparent), 0 16px 40px -20px color-mix(in oklab, var(--color-primary) 60%, transparent);
+    box-shadow:
+      0 0 0 1px color-mix(in oklab, var(--color-primary) 25%, transparent),
+      0 16px 40px -20px color-mix(in oklab, var(--color-primary) 60%, transparent);
   }
 
   .neon-button:hover {
     transform: translateY(-1px);
-    box-shadow: 0 0 0 1px color-mix(in oklab, var(--color-primary) 35%, transparent), 0 18px 50px -18px color-mix(in oklab, var(--color-primary) 75%, transparent);
+    box-shadow:
+      0 0 0 1px color-mix(in oklab, var(--color-primary) 35%, transparent),
+      0 18px 50px -18px color-mix(in oklab, var(--color-primary) 75%, transparent);
   }
 
   .ghost-button {
@@ -311,7 +346,12 @@
   }
 
   .soft-divider {
-    background: linear-gradient(90deg, transparent, color-mix(in oklab, var(--color-border) 90%, transparent), transparent);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in oklab, var(--color-border) 90%, transparent),
+      transparent
+    );
   }
 }
 

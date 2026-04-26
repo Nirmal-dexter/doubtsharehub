@@ -24,9 +24,7 @@ let _db: Firestore | null = null;
 
 function ensureApp(): FirebaseApp {
   if (!isFirebaseConfigured) {
-    throw new Error(
-      "Firebase is not configured. Add your web config to src/lib/firebase.ts."
-    );
+    throw new Error("Firebase is not configured. Add your web config to src/lib/firebase.ts.");
   }
   if (!_app) _app = getApps().length ? getApp() : initializeApp(firebaseConfig);
   return _app;
